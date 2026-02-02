@@ -42,4 +42,7 @@
   --step-3: clamp(1.512rem, 1.0128rem + 2.1299vw, 2.9297rem);
   --step-4: clamp(1.8144rem, 1.1638rem + 2.7759vw, 3.6621rem);
   --step-5: clamp(2.1773rem, 1.3321rem + 3.6062vw, 4.5776rem);
+
+  --figtree: "Figtree", sans-serif;
+
 }

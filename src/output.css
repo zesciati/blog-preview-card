@@ -7,13 +7,19 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
-    --color-amber-200: oklch(92.4% 0.12 95.746);
     --spacing: 0.25rem;
-    --radius-3xl: 1.5rem;
+    --text-sm: 0.875rem;
+    --text-sm--line-height: calc(1.25 / 0.875);
+    --text-xl: 1.25rem;
+    --text-xl--line-height: calc(1.75 / 1.25);
+    --font-weight-medium: 500;
+    --font-weight-extrabold: 800;
+    --radius-sm: 0.25rem;
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
     --yellow: oklch(0.8655 0.1495 93.36);
     --white: oklch(1 0 0);
+    --figtree: "Figtree", sans-serif;
   }
 }
 @layer base {
@@ -168,11 +174,17 @@
   .static {
     position: static;
   }
-  .m-5 {
-    margin: calc(var(--spacing) * 5);
+  .mx-6 {
+    margin-inline: calc(var(--spacing) * 6);
   }
-  .m-18 {
-    margin: calc(var(--spacing) * 18);
+  .my-3 {
+    margin-block: calc(var(--spacing) * 3);
+  }
+  .mt-3 {
+    margin-top: calc(var(--spacing) * 3);
+  }
+  .mt-6 {
+    margin-top: calc(var(--spacing) * 6);
   }
   .contents {
     display: contents;
@@ -183,17 +195,20 @@
   .table {
     display: table;
   }
-  .h-50 {
-    height: calc(var(--spacing) * 50);
-  }
   .min-h-screen {
     min-height: 100vh;
   }
-  .w-69 {
-    width: calc(var(--spacing) * 69);
+  .w-\[fit-content\] {
+    width: fit-content;
   }
-  .w-69\.75 {
-    width: calc(var(--spacing) * 69.75);
+  .w-auto {
+    width: auto;
+  }
+  .w-fit {
+    width: fit-content;
+  }
+  .w-max {
+    width: max-content;
   }
   .border-collapse {
     border-collapse: collapse;
@@ -213,14 +228,17 @@
   .justify-center {
     justify-content: center;
   }
-  .rounded-3xl {
-    border-radius: var(--radius-3xl);
+  .rounded-\[4px\] {
+    border-radius: 4px;
   }
   .rounded-\[10px\] {
     border-radius: 10px;
   }
   .rounded-\[20px\] {
     border-radius: 20px;
+  }
+  .rounded-sm {
+    border-radius: var(--radius-sm);
   }
   .border {
     border-style: var(--tw-border-style);
@@ -232,17 +250,39 @@
   .bg-\(--yellow\) {
     background-color: var(--yellow);
   }
-  .bg-amber-200 {
-    background-color: var(--color-amber-200);
-  }
-  .p-1 {
-    padding: calc(var(--spacing) * 1);
-  }
   .p-2 {
     padding: calc(var(--spacing) * 2);
   }
-  .p-18 {
-    padding: calc(var(--spacing) * 18);
+  .p-3 {
+    padding: calc(var(--spacing) * 3);
+  }
+  .p-6 {
+    padding: calc(var(--spacing) * 6);
+  }
+  .px-3 {
+    padding-inline: calc(var(--spacing) * 3);
+  }
+  .py-1 {
+    padding-block: calc(var(--spacing) * 1);
+  }
+  .font-\(family-name\:--figtree\) {
+    font-family: var(--figtree);
+  }
+  .text-sm {
+    font-size: var(--text-sm);
+    line-height: var(--tw-leading, var(--text-sm--line-height));
+  }
+  .text-xl {
+    font-size: var(--text-xl);
+    line-height: var(--tw-leading, var(--text-xl--line-height));
+  }
+  .font-extrabold {
+    --tw-font-weight: var(--font-weight-extrabold);
+    font-weight: var(--font-weight-extrabold);
+  }
+  .font-medium {
+    --tw-font-weight: var(--font-weight-medium);
+    font-weight: var(--font-weight-medium);
   }
   .underline {
     text-decoration-line: underline;
@@ -278,6 +318,10 @@
   inherits: false;
   initial-value: solid;
 }
+@property --tw-font-weight {
+  syntax: "*";
+  inherits: false;
+}
 @property --tw-outline-style {
   syntax: "*";
   inherits: false;
@@ -292,6 +336,7 @@
       --tw-skew-x: initial;
       --tw-skew-y: initial;
       --tw-border-style: solid;
+      --tw-font-weight: initial;
       --tw-outline-style: solid;
     }
   }
